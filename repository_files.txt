@@ -1,0 +1,128 @@
+Repository file list:
+Generated on Tue Nov 19 19:45:42 CET 2024
+-------------------
+./LICENSE
+./pyproject.toml
+./shacl_files/test_shape_2.ttl
+./shacl_files/test_shape.ttl
+./shacl_files/task_1_remake.ttl
+./docs/test_shape_2.md
+./docs/shapes.md
+./docs/task_1_remake.md
+./README.md
+./.gitignore
+./shacl_doc_generator/config.py
+  Content of ./shacl_doc_generator/config.py:
+  -------------------
+  from pathlib import Path
+  
+  class Settings:
+      def __init__(self):
+          self.docs_output_dir = Path('./docs')
+          self.shacl_files_dir = Path('./shacl_files')
+          
+          # Create output directory if it doesn't exist
+          self.docs_output_dir.mkdir(parents=True, exist_ok=True)
+          
+      @property
+      def docs_dir(self) -> Path:
+          return self.docs_output_dir
+          
+      @property
+      def shacl_dir(self) -> Path:
+          return self.shacl_files_dir
+./shacl_doc_generator/parser.py
+  Content of ./shacl_doc_generator/parser.py:
+  -------------------
+  from pathlib import Path
+  from typing import Dict, List
+  from rdflib import Graph, Namespace
+  from rdflib.namespace import RDF, RDFS, SH
+  
+  class ShaclParser:
+      def __init__(self):
+          self.shapes: Dict[str, Dict] = {}
+          
+      def parse_file(self, file_path: Path) -> Dict[str, Dict]:
+          """Parse a SHACL file and extract shapes."""
+          g = Graph()
+          g.parse(file_path, format="turtle")
+          
+          # Find all NodeShape and PropertyShape declarations
+          shape_nodes = []
+          for s in g.subjects(RDF.type, SH.NodeShape):
+              shape_nodes.append(s)
+          for s in g.subjects(RDF.type, SH.PropertyShape):
+              shape_nodes.append(s)
+              
+          # Extract information for each shape
+          for node in shape_nodes:
+              shape_info = {
+                  'type': 'NodeShape' if (node, RDF.type, SH.NodeShape) in g else 'PropertyShape',
+                  'label': str(g.value(node, RDFS.label) or ''),
+                  'comment': str(g.value(node, RDFS.comment) or ''),
+                  'target_class': str(g.value(node, SH.targetClass) or '')
+              }
+              
+              self.shapes[str(node)] = shape_info
+              
+          return self.shapes
+./shacl_doc_generator/generator.py
+  Content of ./shacl_doc_generator/generator.py:
+  -------------------
+  from pathlib import Path
+  from typing import Dict
+  
+  class MarkdownGenerator:
+      def __init__(self, output_dir: Path):
+          self.output_dir = output_dir
+          
+      def generate_docs(self, shapes: Dict[str, Dict], output_filename: str = "shapes.md"):
+          """Generate Markdown documentation from shapes dictionary."""
+          output_path = self.output_dir / output_filename
+          
+          with open(output_path, 'w', encoding='utf-8') as f:
+              f.write("# SHACL Shapes Documentation\n\n")
+              
+              for shape_id, info in shapes.items():
+                  f.write(f"## Shape: {shape_id}\n\n")
+                  
+                  if info['label']:
+                      f.write(f"**Label:** {info['label']}\n\n")
+                      
+                  if info['type']:
+                      f.write(f"**Type:** {info['type']}\n\n")
+                      
+                  if info['comment']:
+                      f.write(f"**Description:** {info['comment']}\n\n")
+                      
+                  if info['target_class']:
+                      f.write(f"**Target Class:** {info['target_class']}\n\n")
+                      
+                  f.write("---\n\n")
+./concatenate_repo.sh
+./.env.example
+./main.py
+  Content of ./main.py:
+  -------------------
+  import argparse
+  from pathlib import Path
+  from shacl_doc_generator.parser import ShaclParser
+  from shacl_doc_generator.generator import MarkdownGenerator
+  from shacl_doc_generator.config import Settings
+  
+  def main():
+      parser = argparse.ArgumentParser(description='Generate documentation from SHACL files')
+      parser.add_argument('filename', help='Name of the SHACL file to process')
+      args = parser.parse_args()
+  
+      settings = Settings()
+      shacl_parser = ShaclParser()
+      shapes = shacl_parser.parse_file(settings.shacl_dir / args.filename)
+  
+      output_filename = Path(args.filename).stem + ".md"
+      generator = MarkdownGenerator(settings.docs_dir)
+      generator.generate_docs(shapes, output_filename)
+  
+  if __name__ == "__main__":
+      main()

@@ -1,0 +1,81 @@
+@prefix : <http://szymi_himym.org/ontology/entity/> .
+@prefix prop: <http://szymi_himym.org/ontology/property/> .
+@prefix person: <http://szymi_himym.org/ontology/person/> .
+@prefix place: <http://szymi_himym.org/ontology/place/> .
+@prefix schema: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+# Class
+:HangoutPlace rdf:type rdfs:Class ;
+    rdfs:comment "A social gathering place."@en .
+
+# Property
+prop:frequentHangout rdf:type rdf:Property ;
+    rdfs:label "frequentHangout" ;
+    rdfs:comment "Person's favorite or most visited hangout."@en .
+
+# People
+person:barneyStinson rdf:type schema:Person ;
+    schema:givenName "Barney"@en ;
+    schema:familyName "Stinson"@en ;
+    schema:homeLocation place:barneysApartment ;
+    schema:birthDate "1976-07-22"^^xsd:date ;
+    foaf:nick "Swarley" ;
+    prop:frequentHangout place:mclarensPub .
+
+person:robinScherbatsky rdf:type schema:Person ;
+    schema:givenName "Robin"@en ;
+    schema:familyName "Scherbatsky"@en ;
+    schema:homeLocation place:robinsApartment ;
+    schema:birthDate "1980-07-23"^^xsd:date ;
+    foaf:nick "Robin Sparkles" ;
+    prop:frequentHangout place:mclarensPub .
+
+person:tedMosby rdf:type schema:Person ;
+    schema:givenName "Ted"@en ;
+    schema:familyName "Mosby"@en ;
+    schema:homeLocation place:tedsApartment ;
+    schema:birthDate "1978-04-25"^^xsd:date ;
+    foaf:title "Professor" ;
+    prop:frequentHangout place:timesSquare .
+
+# Places
+place:mclarensPub rdf:type schema:Place ;
+    schema:name "McLaren's Pub"@en ;
+    rdf:type :HangoutPlace ;
+    schema:containedInPlace _:NewYork .
+
+place:tedsApartment rdf:type schema:Place ;
+    schema:name "Ted's House"@en ;
+    schema:containedInPlace _:apartmentBuilding .
+
+place:tedsUniversity rdf:type schema:Place ;
+    schema:name "University"@en ;
+    schema:containedInPlace _:NewYork .
+
+place:barneysApartment rdf:type schema:Place ;
+    schema:name "Barney's Apartment"@en ;
+    schema:containedInPlace _:apartmentBuilding .
+
+place:robinsApartment rdf:type schema:Place ;
+    schema:name "Robin's Apartment"@en ;
+    schema:containedInPlace _:apartmentBuilding .
+
+_:apartmentBuilding rdf:type schema:Place ;
+    schema:name "Apartment Building"@en ;
+    schema:containedInPlace place:Earth .
+
+place:timesSquare rdf:type schema:Place ;
+    schema:name "Times Square"@en ;
+    rdf:type :HangoutPlace ;
+    schema:containedInPlace _:NewYork .
+
+_:NewYork rdf:type schema:Place ;
+    schema:name "New York"@en ;
+    schema:containedInPlace place:Earth .
+
+place:Earth rdf:type schema:Place ;
+    schema:name "Earth"@en .
