@@ -2,9 +2,20 @@
 
 Document Generator for SHACL for Knowledge Graphs Subject
 
-## Usage
+## Installation
 
 ```bash
 poetry install
-poetry run python main.py --input ./shacl_files --output ./docs
+```
+
+## Usage:
+
+```
+poetry run python main.py [-h] --input INPUT [--output OUTPUT]
+```
+
+## Example:
+
+```bash
+poetry run python main.py --input ./shacl_files/schema/src/shacl --output ./docs
 ```

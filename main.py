@@ -25,7 +25,8 @@ def main():
         shapes_all = shacl_parser.parse_file(input_path)
 
     md_generator = MarkdownGenerator()
-    md_generator.generate_docs(shapes_all, "shapes.md")
+    output_file = output_dir / 'shapes.md'
+    md_generator.generate_docs(shapes_all, output_file)
 
 if __name__ == "__main__":
     main()
