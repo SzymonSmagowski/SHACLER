@@ -12,6 +12,7 @@ class ShaclParser:
 
     def parse_file(self, file_path: Path) -> Dict[str, NodeShapeInfo]:
         g = Graph()
+        print(f"Parsing file: {file_path}")
         g.parse(file_path, format="turtle")
 
         node_shapes = list(g.subjects(RDF.type, SH.NodeShape))
