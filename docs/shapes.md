@@ -10,7 +10,13 @@
 
 #### Property: (Blank Node)
 
-**Path:** ^`rdf:type`
+**Path:**
+
+- Inverse of:
+  - Predicate path:
+    - `rdf:type`
+
+^`rdf:type`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -28,7 +34,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rdf:type`
+**Path:**
+
+- Predicate path:
+  - `rdf:type`
+
+`rdf:type`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -36,7 +47,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:identifier`
+**Path:**
+
+- Predicate path:
+  - `dcterms:identifier`
+
+`dcterms:identifier`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -45,7 +61,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:title`
+**Path:**
+
+- Predicate path:
+  - `dcterms:title`
+
+`dcterms:title`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -54,7 +75,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:description`
+**Path:**
+
+- Predicate path:
+  - `dcterms:description`
+
+`dcterms:description`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -63,7 +89,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rb:hasDatasetShape`
+**Path:**
+
+- Predicate path:
+  - `rb:hasDatasetShape`
+
+`rb:hasDatasetShape`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -72,7 +103,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rb:hasDistributionShape`
+**Path:**
+
+- Predicate path:
+  - `rb:hasDistributionShape`
+
+`rb:hasDistributionShape`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -91,7 +127,13 @@
 
 #### Property: (Blank Node)
 
-**Path:** ^`rdf:type`
+**Path:**
+
+- Inverse of:
+  - Predicate path:
+    - `rdf:type`
+
+^`rdf:type`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -109,7 +151,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rdf:type`
+**Path:**
+
+- Predicate path:
+  - `rdf:type`
+
+`rdf:type`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -118,7 +165,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:conformsTo`
+**Path:**
+
+- Predicate path:
+  - `dcterms:conformsTo`
+
+`dcterms:conformsTo`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -127,7 +179,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:identifier`
+**Path:**
+
+- Predicate path:
+  - `dcterms:identifier`
+
+`dcterms:identifier`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -136,7 +193,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:title`
+**Path:**
+
+- Predicate path:
+  - `dcterms:title`
+
+`dcterms:title`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -145,7 +207,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:description`
+**Path:**
+
+- Predicate path:
+  - `dcterms:description`
+
+`dcterms:description`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -154,7 +221,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:creator`
+**Path:**
+
+- Predicate path:
+  - `dcterms:creator`
+
+`dcterms:creator`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -172,7 +244,13 @@
 
 #### Property: (Blank Node)
 
-**Path:** ^`rdf:type`
+**Path:**
+
+- Inverse of:
+  - Predicate path:
+    - `rdf:type`
+
+^`rdf:type`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -190,7 +268,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rdf:type`
+**Path:**
+
+- Predicate path:
+  - `rdf:type`
+
+`rdf:type`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -199,7 +282,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:conformsTo`
+**Path:**
+
+- Predicate path:
+  - `dcterms:conformsTo`
+
+`dcterms:conformsTo`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -208,7 +296,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:identifier`
+**Path:**
+
+- Predicate path:
+  - `dcterms:identifier`
+
+`dcterms:identifier`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -217,7 +310,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:title`
+**Path:**
+
+- Predicate path:
+  - `dcterms:title`
+
+`dcterms:title`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -226,7 +324,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:description`
+**Path:**
+
+- Predicate path:
+  - `dcterms:description`
+
+`dcterms:description`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -245,7 +348,13 @@
 
 #### Property: (Blank Node)
 
-**Path:** ^`rdf:type`
+**Path:**
+
+- Inverse of:
+  - Predicate path:
+    - `rdf:type`
+
+^`rdf:type`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -263,7 +372,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rdf:type`
+**Path:**
+
+- Predicate path:
+  - `rdf:type`
+
+`rdf:type`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -271,7 +385,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:conformsTo`
+**Path:**
+
+- Predicate path:
+  - `dcterms:conformsTo`
+
+`dcterms:conformsTo`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -281,7 +400,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:identifier`
+**Path:**
+
+- Predicate path:
+  - `dcterms:identifier`
+
+`dcterms:identifier`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -290,7 +414,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:title`
+**Path:**
+
+- Predicate path:
+  - `dcterms:title`
+
+`dcterms:title`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -299,7 +428,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:description`
+**Path:**
+
+- Predicate path:
+  - `dcterms:description`
+
+`dcterms:description`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -308,7 +442,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:issued`
+**Path:**
+
+- Predicate path:
+  - `dcterms:issued`
+
+`dcterms:issued`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -317,7 +456,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:license`
+**Path:**
+
+- Predicate path:
+  - `dcterms:license`
+
+`dcterms:license`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -327,7 +471,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:creator`
+**Path:**
+
+- Predicate path:
+  - `dcterms:creator`
+
+`dcterms:creator`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -335,7 +484,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcat:theme`
+**Path:**
+
+- Predicate path:
+  - `dcat:theme`
+
+`dcat:theme`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -345,7 +499,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `void:vocabulary`
+**Path:**
+
+- Predicate path:
+  - `void:vocabulary`
+
+`void:vocabulary`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -353,7 +512,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rb:hasStreamElementCount`
+**Path:**
+
+- Predicate path:
+  - `rb:hasStreamElementCount`
+
+`rb:hasStreamElementCount`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -362,7 +526,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `stax:hasStreamTypeUsage`
+**Path:**
+
+- Predicate path:
+  - `stax:hasStreamTypeUsage`
+
+`stax:hasStreamTypeUsage`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -371,7 +540,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rb:hasStreamElementSplit`
+**Path:**
+
+- Predicate path:
+  - `rb:hasStreamElementSplit`
+
+`rb:hasStreamElementSplit`
 
 **Constraints:**
 - **sh:nodeKind:** `sh:BlankNodeOrIRI`
@@ -379,7 +553,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rb:conformsToRdf11`
+**Path:**
+
+- Predicate path:
+  - `rb:conformsToRdf11`
+
+`rb:conformsToRdf11`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -388,7 +567,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rb:conformsToRdfStarDraft_20211217`
+**Path:**
+
+- Predicate path:
+  - `rb:conformsToRdfStarDraft_20211217`
+
+`rb:conformsToRdfStarDraft_20211217`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -397,7 +581,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rb:usesGeneralizedRdfDatasets`
+**Path:**
+
+- Predicate path:
+  - `rb:usesGeneralizedRdfDatasets`
+
+`rb:usesGeneralizedRdfDatasets`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -406,7 +595,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rb:usesGeneralizedTriples`
+**Path:**
+
+- Predicate path:
+  - `rb:usesGeneralizedTriples`
+
+`rb:usesGeneralizedTriples`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -415,7 +609,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rb:usesRdfStar`
+**Path:**
+
+- Predicate path:
+  - `rb:usesRdfStar`
+
+`rb:usesRdfStar`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -424,35 +623,60 @@
 
 #### Property: (Blank Node)
 
-**Path:** `dcat:version`
+**Path:**
+
+- Predicate path:
+  - `dcat:version`
+
+`dcat:version`
 
 **Constraints:**
 - **sh:maxCount:** "0"^^xsd:integer
 
 #### Property: (Blank Node)
 
-**Path:** `dcterms:modified`
+**Path:**
+
+- Predicate path:
+  - `dcterms:modified`
+
+`dcterms:modified`
 
 **Constraints:**
 - **sh:maxCount:** "0"^^xsd:integer
 
 #### Property: (Blank Node)
 
-**Path:** `dcat:landingPage`
+**Path:**
+
+- Predicate path:
+  - `dcat:landingPage`
+
+`dcat:landingPage`
 
 **Constraints:**
 - **sh:maxCount:** "0"^^xsd:integer
 
 #### Property: (Blank Node)
 
-**Path:** `dcat:inSeries`
+**Path:**
+
+- Predicate path:
+  - `dcat:inSeries`
+
+`dcat:inSeries`
 
 **Constraints:**
 - **sh:maxCount:** "0"^^xsd:integer
 
 #### Property: (Blank Node)
 
-**Path:** `dcat:distribution`
+**Path:**
+
+- Predicate path:
+  - `dcat:distribution`
+
+`dcat:distribution`
 
 **Constraints:**
 - **sh:maxCount:** "0"^^xsd:integer
@@ -473,7 +697,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rdf:type`
+**Path:**
+
+- Predicate path:
+  - `rdf:type`
+
+`rdf:type`
 
 **Constraints:**
 - **sh:hasValue:** `stax:ConcreteRdfStreamType`
@@ -490,7 +719,20 @@
 
 #### Property: (Blank Node)
 
-**Path:** ((`skos:narrower`)+)/(^`stax:hasStreamType`)/(^`stax:hasStreamTypeUsage`)
+**Path:**
+
+- Sequence of:
+  - One-or-more of:
+    - Predicate path:
+      - `skos:narrower`
+  - Inverse of:
+    - Predicate path:
+      - `stax:hasStreamType`
+  - Inverse of:
+    - Predicate path:
+      - `stax:hasStreamTypeUsage`
+
+((`skos:narrower`)+)/(^`stax:hasStreamType`)/(^`stax:hasStreamTypeUsage`)
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -505,7 +747,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rdf:type`
+**Path:**
+
+- Predicate path:
+  - `rdf:type`
+
+`rdf:type`
 
 **Constraints:**
 - **sh:in:** (Blank Node)
@@ -522,7 +769,12 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rdf:type`
+**Path:**
+
+- Predicate path:
+  - `rdf:type`
+
+`rdf:type`
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer
@@ -530,7 +782,17 @@
 
 #### Property: (Blank Node)
 
-**Path:** `rb:hasSubjectShape`/(`sh:targetClass`|`sh:targetSubjectsOf`|`sh:targetObjectsOf`|`rb:targetCustom`)
+**Path:**
+
+- Sequence of:
+  - rb:hasSubjectShape
+  - Alternative of:
+    - sh:targetClass
+    - sh:targetSubjectsOf
+    - sh:targetObjectsOf
+    - rb:targetCustom
+
+`rb:hasSubjectShape`/(`sh:targetClass`|`sh:targetSubjectsOf`|`sh:targetObjectsOf`|`rb:targetCustom`)
 
 **Constraints:**
 - **sh:minCount:** "1"^^xsd:integer

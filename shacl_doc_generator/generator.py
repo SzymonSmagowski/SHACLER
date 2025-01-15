@@ -18,7 +18,15 @@ class MarkdownGenerator:
                     f.write("### Properties\n\n")
                     for pshape in shape_info.properties:
                         f.write(f"#### Property: {pshape.id}\n\n")
-                        f.write("**Path:** " + self._format_path(pshape.path) + "\n\n")
+                        f.write("**Path:**\n\n")
+                        tree_lines = self._render_path_tree(pshape.path)
+                        for line in tree_lines:
+                            f.write(line + "\n")
+
+                        f.write("\n")
+
+                        encoded_path = self._format_path(pshape.path)
+                        f.write(f"{encoded_path}\n\n")
 
                         if pshape.constraints:
                             f.write("**Constraints:**\n")
@@ -27,6 +35,50 @@ class MarkdownGenerator:
                             f.write("\n")
 
                 f.write("---\n\n")
+
+    def _render_path_tree(self, path: Path, indent: int = 0) -> list[str]:
+        """
+        Recursively render a SHACL Path as a bullet point tree.
+        Each Path can be a sequence, alternative, inverse, etc.
+        """
+        lines = []
+
+        # Make a user-friendly label for the path type
+        label = self._path_type_label(path.type)
+
+        prefix = "  " * indent  # 2 spaces per level
+        lines.append(f"{prefix}- {label}")
+
+        for item in path.items:
+            if isinstance(item, str):
+                lines.append(f"{'  ' * (indent+1)}- {item}")
+            elif isinstance(item, Path):
+                nested_lines = self._render_path_tree(item, indent + 1)
+                lines.extend(nested_lines)
+            else:
+                lines.append(f"{'  ' * (indent+1)}- ???")
+        return lines
+
+    def _path_type_label(self, path_type: PathEnum) -> str:
+        """
+        Convert a PathEnum to a more human-readable label for the bullet point tree.
+        """
+        if path_type == PathEnum.sequence:
+            return "Sequence of:"
+        elif path_type == PathEnum.alternative:
+            return "Alternative of:"
+        elif path_type == PathEnum.inverse:
+            return "Inverse of:"
+        elif path_type == PathEnum.zero_or_more:
+            return "Zero-or-more of:"
+        elif path_type == PathEnum.one_or_more:
+            return "One-or-more of:"
+        elif path_type == PathEnum.zero_or_one:
+            return "Zero-or-one of:"
+        elif path_type == PathEnum.predicate:
+            return "Predicate path:"
+        else:
+            return str(path_type)  # fallback
 
     def _format_path(self, path: Path) -> str:
         """Convert a Path object into a human-readable string representation."""
