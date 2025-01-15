@@ -19,8 +19,8 @@
 ^`rdf:type`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 
 ---
 
@@ -42,8 +42,8 @@
 `rdf:type`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 - **sh:hasValue:** `rb:Task`
 
 #### Property: (Blank Node)
@@ -56,8 +56,8 @@
 `dcterms:conformsTo`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 - **sh:hasValue:** `ns2:metadata`
 
 #### Property: (Blank Node)
@@ -70,8 +70,8 @@
 `dcterms:identifier`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 - **sh:datatype:** `xsd:string`
 
 #### Property: (Blank Node)
@@ -84,9 +84,9 @@
 `dcterms:title`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
 - **sh:datatype:** `rdf:langString`
-- **sh:uniqueLang:** "True"^^xsd:boolean
+- **sh:uniqueLang:** `"True"^^xsd:boolean`
 
 #### Property: (Blank Node)
 
@@ -98,9 +98,9 @@
 `dcterms:description`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
 - **sh:datatype:** `rdf:langString`
-- **sh:uniqueLang:** "True"^^xsd:boolean
+- **sh:uniqueLang:** `"True"^^xsd:boolean`
 
 #### Property: (Blank Node)
 
@@ -112,7 +112,7 @@
 `dcterms:creator`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
 - **sh:nodeKind:** `sh:BlankNodeOrIRI`
 
 ---

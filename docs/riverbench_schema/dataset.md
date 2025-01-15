@@ -19,8 +19,8 @@
 ^`rdf:type`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 
 ---
 
@@ -42,7 +42,7 @@
 `rdf:type`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
 - **sh:hasValue:** `dcat:Dataset`
 
 #### Property: (Blank Node)
@@ -55,8 +55,8 @@
 `dcterms:conformsTo`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 - **sh:nodeKind:** `sh:IRI`
 - **sh:hasValue:** `ns1:metadata`
 
@@ -70,8 +70,8 @@
 `dcterms:identifier`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 - **sh:datatype:** `xsd:string`
 
 #### Property: (Blank Node)
@@ -84,9 +84,9 @@
 `dcterms:title`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
 - **sh:datatype:** `rdf:langString`
-- **sh:uniqueLang:** "True"^^xsd:boolean
+- **sh:uniqueLang:** `"True"^^xsd:boolean`
 
 #### Property: (Blank Node)
 
@@ -98,9 +98,9 @@
 `dcterms:description`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
 - **sh:datatype:** `rdf:langString`
-- **sh:uniqueLang:** "True"^^xsd:boolean
+- **sh:uniqueLang:** `"True"^^xsd:boolean`
 
 #### Property: (Blank Node)
 
@@ -112,8 +112,8 @@
 `dcterms:issued`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 - **sh:datatype:** `xsd:date`
 
 #### Property: (Blank Node)
@@ -126,10 +126,10 @@
 `dcterms:license`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 - **sh:nodeKind:** `sh:IRI`
-- **sh:pattern:** "^https://spdx.org/licenses/"
+- **sh:pattern:** `"^https://spdx.org/licenses/"`
 
 #### Property: (Blank Node)
 
@@ -141,7 +141,7 @@
 `dcterms:creator`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
 - **sh:nodeKind:** `sh:BlankNodeOrIRI`
 
 #### Property: (Blank Node)
@@ -154,9 +154,9 @@
 `dcat:theme`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
 - **sh:nodeKind:** `sh:IRI`
-- **sh:pattern:** "^http://eurovoc.europa.eu/"
+- **sh:pattern:** `"^http://eurovoc.europa.eu/"`
 - **sh:node:** (Blank Node)
 
 #### Property: (Blank Node)
@@ -169,7 +169,7 @@
 `void:vocabulary`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
 - **sh:nodeKind:** `sh:IRI`
 
 #### Property: (Blank Node)
@@ -182,8 +182,8 @@
 `rb:hasStreamElementCount`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 - **sh:datatype:** `xsd:integer`
 
 #### Property: (Blank Node)
@@ -196,8 +196,8 @@
 `stax:hasStreamTypeUsage`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "2"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"2"^^xsd:integer`
 - **sh:node:** `StreamTypeShape`
 
 #### Property: (Blank Node)
@@ -223,8 +223,8 @@
 `rb:conformsToRdf11`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 - **sh:datatype:** `xsd:boolean`
 
 #### Property: (Blank Node)
@@ -237,8 +237,8 @@
 `rb:conformsToRdfStarDraft_20211217`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 - **sh:datatype:** `xsd:boolean`
 
 #### Property: (Blank Node)
@@ -251,8 +251,8 @@
 `rb:usesGeneralizedRdfDatasets`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 - **sh:datatype:** `xsd:boolean`
 
 #### Property: (Blank Node)
@@ -265,8 +265,8 @@
 `rb:usesGeneralizedTriples`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 - **sh:datatype:** `xsd:boolean`
 
 #### Property: (Blank Node)
@@ -279,8 +279,8 @@
 `rb:usesRdfStar`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 - **sh:datatype:** `xsd:boolean`
 
 #### Property: (Blank Node)
@@ -293,7 +293,7 @@
 `dcat:version`
 
 **Constraints:**
-- **sh:maxCount:** "0"^^xsd:integer
+- **sh:maxCount:** `"0"^^xsd:integer`
 
 #### Property: (Blank Node)
 
@@ -305,7 +305,7 @@
 `dcterms:modified`
 
 **Constraints:**
-- **sh:maxCount:** "0"^^xsd:integer
+- **sh:maxCount:** `"0"^^xsd:integer`
 
 #### Property: (Blank Node)
 
@@ -317,7 +317,7 @@
 `dcat:landingPage`
 
 **Constraints:**
-- **sh:maxCount:** "0"^^xsd:integer
+- **sh:maxCount:** `"0"^^xsd:integer`
 
 #### Property: (Blank Node)
 
@@ -329,7 +329,7 @@
 `dcat:inSeries`
 
 **Constraints:**
-- **sh:maxCount:** "0"^^xsd:integer
+- **sh:maxCount:** `"0"^^xsd:integer`
 
 #### Property: (Blank Node)
 
@@ -341,7 +341,7 @@
 `dcat:distribution`
 
 **Constraints:**
-- **sh:maxCount:** "0"^^xsd:integer
+- **sh:maxCount:** `"0"^^xsd:integer`
 
 ---
 
@@ -397,8 +397,8 @@
 ((`skos:narrower`)+)/(^`stax:hasStreamType`)/(^`stax:hasStreamTypeUsage`)
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
-- **sh:maxCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
+- **sh:maxCount:** `"1"^^xsd:integer`
 - **sh:nodeKind:** `sh:IRI`
 
 ---
@@ -439,7 +439,7 @@
 `rdf:type`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
 - **sh:hasValue:** `rb:TopicStreamElementSplit`
 
 #### Property: (Blank Node)
@@ -457,7 +457,7 @@
 `rb:hasSubjectShape`/(`sh:targetClass`|`sh:targetSubjectsOf`|`sh:targetObjectsOf`|`rb:targetCustom`)
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
 - **sh:nodeKind:** `sh:IRI`
 
 ---

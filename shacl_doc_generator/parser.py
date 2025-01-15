@@ -174,33 +174,30 @@ class ShaclParser:
         else:
             raise ValueError(f"Path element {element} is neither URIRef nor BNode.")
 
-    def to_prefixed(self, g: Graph, term: Any, code_format: bool = True) -> str | int | float:
+    def to_prefixed(self, g: Graph, term: Any, code_format: bool = True) -> str:
         """
         Convert a term (URIRef, BNode, or str) to a prefixed string if possible,
         or a placeholder if it's a blank node/literal.
         """
+        if isinstance(term, BNode):
+            return "(Blank Node)"
+        prefixed = self._to_prefixed(g, term)
+        return prefixed if not code_format else f'`{prefixed}`'
 
+    def _to_prefixed(self, g: Graph, term: Any):
         if isinstance(term, URIRef):
             try:
-                # Attempt to convert to qname
                 qn = g.namespace_manager.qname(term)
-                return f"`{qn}`" if code_format else qn
+                return qn
             except Exception:
-                # Fallback: just wrap the full URI in backticks
-                return f"`{str(term)}`" if code_format else str(term)
-        elif isinstance(term, BNode):
-            # Return a more user-friendly label
-            return "(Blank Node)"
+                return str(term)
         elif isinstance(term, Literal):
             if term.language:
-                # e.g. "Hello"@en
                 return f"\"{term.value}\"@{term.language}"
             elif term.datatype:
-                # show typed
                 return f"\"{term.value}\"^^{g.namespace_manager.qname(term.datatype)}"
             else:
-                # untyped literal
                 return f"\"{term.value}\""
         else:
-            return f"`{term}`" if code_format else term
+            return term
 

@@ -19,7 +19,7 @@
 ^`rdf:type`
 
 **Constraints:**
-- **sh:minCount:** "1"^^xsd:integer
+- **sh:minCount:** `"1"^^xsd:integer`
 
 ---
 
