@@ -19,7 +19,8 @@ class ShaclParser:
 
         for node in node_shapes:
             shape_info = self.extract_node_shape_info(g, node)
-            self.shapes[str(node)] = shape_info
+            prefixed = self.to_prefixed(g, node, False)
+            self.shapes[prefixed] = shape_info
 
         return self.shapes
 
@@ -40,7 +41,8 @@ class ShaclParser:
         for p, o in g.predicate_objects(node):
             if str(p).startswith(str(SH)) and p not in (SH.property, SH.path):
                 c_key = self._get_property_label(g, p)
-                c_val = self._extract_bnode_shape(g, o) if isinstance(o, BNode) else str(o)
+                # If o is a BNode or a URIRef, convert it
+                c_val = self.to_prefixed(g, o)
                 constraints.append(Constraint(name=c_key, value=c_val))
         return constraints
 
@@ -54,9 +56,10 @@ class ShaclParser:
     def extract_property_shape_info(self, g: Graph, pshape: URIRef) -> PropertyShapeInfo:
         path_node = g.value(pshape, SH.path)
         path = self._parse_path(g, path_node)
+        id_val = self.to_prefixed(g, pshape)
 
         return PropertyShapeInfo(
-            id=str(pshape),
+            id=id_val,
             path=path,
             constraints=self.extract_constraints(g, pshape)
         )
@@ -89,7 +92,8 @@ class ShaclParser:
     def _parse_path(self, g: Graph, node: Union[URIRef, BNode]) -> Path:
         """Parse a path node (URIRef or BNode) into a Path object."""
         if isinstance(node, URIRef):
-            return Path(type=PathEnum.predicate, items=[str(node)])
+            prefixed = self.to_prefixed(g, node)
+            return Path(type=PathEnum.predicate, items=[prefixed])
 
         # Check inversePath
         inverse = g.value(node, SH.inversePath)
@@ -154,10 +158,46 @@ class ShaclParser:
         return elements
 
     def _parse_path_element(self, g: Graph, element):
-        """Parse a single path element, which can be a URIRef (predicate) or a complex BNode path."""
+        """
+        Parse a single path element, which can be a URIRef (predicate) or a complex BNode path.
+        """
         if isinstance(element, URIRef):
-            return str(element)
+            try:
+                prefixed_name = g.namespace_manager.qname(element)
+            except Exception as e:
+                prefixed_name = str(element)
+            return prefixed_name
+
         elif isinstance(element, BNode):
             return self._parse_path(g, element)
+
         else:
             raise ValueError(f"Path element {element} is neither URIRef nor BNode.")
+
+    def to_prefixed(self, g: Graph, term: Any, code_format: bool = True) -> str:
+        """
+        Convert a term (URIRef, BNode, or str) to a prefixed string if possible,
+        or a placeholder if it's a blank node/literal.
+        """
+        if isinstance(term, BNode):
+            return "(Blank Node)"
+        prefixed = self._to_prefixed(g, term)
+        return prefixed if not code_format else f'`{prefixed}`'
+
+    def _to_prefixed(self, g: Graph, term: Any):
+        if isinstance(term, URIRef):
+            try:
+                qn = g.namespace_manager.qname(term)
+                return qn
+            except Exception:
+                return str(term)
+        elif isinstance(term, Literal):
+            if term.language:
+                return f"\"{term.value}\"@{term.language}"
+            elif term.datatype:
+                return f"\"{term.value}\"^^{g.namespace_manager.qname(term.datatype)}"
+            else:
+                return f"\"{term.value}\""
+        else:
+            return term
+

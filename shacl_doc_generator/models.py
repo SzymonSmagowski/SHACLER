@@ -21,12 +21,6 @@ class Path:
     type: PathEnum
     items: List[Union["Path", str]]
 
-
-@dataclass
-class NodeShapeInfo:
-    id: str
-    constraints: List[Constraint] = field(default_factory=list)
-
 @dataclass
 class PropertyShapeInfo:
     id: str
