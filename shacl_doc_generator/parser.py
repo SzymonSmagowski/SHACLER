@@ -162,12 +162,9 @@ class ShaclParser:
         Parse a single path element, which can be a URIRef (predicate) or a complex BNode path.
         """
         if isinstance(element, URIRef):
-            # Convert full IRI to prefixed IRI
             try:
                 prefixed_name = g.namespace_manager.qname(element)
             except Exception as e:
-                # If something goes wrong or prefix isn’t known, fall back to the full IRI
-                print(f'prefix namespace manager failed: {e}')
                 prefixed_name = str(element)
             return prefixed_name
 
