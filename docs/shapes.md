@@ -1,494 +1,540 @@
 # SHACL Shapes Documentation
 
-## Shape: https://w3id.org/riverbench/schema/dataset-shacl#ProfileGraphShape
+## Shape: ProfileGraphShape
 
 ### NodeShape Constraints
 
-- **sh:targetNode:** https://w3id.org/riverbench/schema/metadata#Profile
+- **sh:targetNode:** `rb:Profile`
 
 ### Properties
 
-#### Property: n919e52bf31f64cbea47ec1378b60fca8b1
+#### Property: (Blank Node)
 
-**Path:** ^http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+**Path:** ^`rdf:type`
 
 **Constraints:**
-- **sh:minCount:** 1
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
 
 ---
 
-## Shape: https://w3id.org/riverbench/schema/dataset-shacl#ProfileShape
+## Shape: ProfileShape
 
 ### NodeShape Constraints
 
-- **sh:targetClass:** https://w3id.org/riverbench/schema/metadata#Profile
+- **sh:targetClass:** `rb:Profile`
 
 ### Properties
 
-#### Property: n919e52bf31f64cbea47ec1378b60fca8b3
+#### Property: (Blank Node)
 
-**Path:** https://w3id.org/riverbench/schema/metadata#isSupersetOfProfile
+**Path:** `rdf:type`
 
 **Constraints:**
-- **sh:nodeKind:** http://www.w3.org/ns/shacl#IRI
-- **sh:node:** {'sh:property': rdflib.term.BNode('n919e52bf31f64cbea47ec1378b60fca8b5')}
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:hasValue:** `dcat:DatasetSeries`
+
+#### Property: (Blank Node)
+
+**Path:** `dcterms:identifier`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:datatype:** `xsd:string`
+
+#### Property: (Blank Node)
+
+**Path:** `dcterms:title`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:datatype:** `rdf:langString`
+- **sh:uniqueLang:** "True"^^xsd:boolean
+
+#### Property: (Blank Node)
+
+**Path:** `dcterms:description`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:datatype:** `rdf:langString`
+- **sh:uniqueLang:** "True"^^xsd:boolean
+
+#### Property: (Blank Node)
+
+**Path:** `rb:hasDatasetShape`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:node:** (Blank Node)
+
+#### Property: (Blank Node)
+
+**Path:** `rb:hasDistributionShape`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:nodeKind:** `sh:BlankNodeOrIRI`
 
 ---
 
-## Shape: https://w3id.org/riverbench/schema/dataset-shacl#CategoryGraphShape
+## Shape: TaskGraphShape
 
 ### NodeShape Constraints
 
-- **sh:targetNode:** https://w3id.org/riverbench/schema/metadata#Category
+- **sh:targetNode:** `rb:Task`
 
 ### Properties
 
-#### Property: nd704ac798dc3413691f7ba7e51283ba8b1
+#### Property: (Blank Node)
 
-**Path:** ^http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+**Path:** ^`rdf:type`
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
 
 ---
 
-## Shape: https://w3id.org/riverbench/schema/dataset-shacl#CategoryShape
+## Shape: TaskShape
 
 ### NodeShape Constraints
 
-- **sh:targetNode:** https://w3id.org/riverbench/temp#category
+- **sh:targetNode:** `ns1:task`
 
 ### Properties
 
-#### Property: nd704ac798dc3413691f7ba7e51283ba8b3
+#### Property: (Blank Node)
 
-**Path:** http://www.w3.org/1999/02/22-rdf-syntax-ns#type
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:hasValue:** https://w3id.org/riverbench/schema/metadata#Category
-
-#### Property: nd704ac798dc3413691f7ba7e51283ba8b4
-
-**Path:** http://purl.org/dc/terms/conformsTo
+**Path:** `rdf:type`
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:hasValue:** https://w3id.org/riverbench/schema/metadata
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:hasValue:** `rb:Task`
 
-#### Property: nd704ac798dc3413691f7ba7e51283ba8b5
+#### Property: (Blank Node)
 
-**Path:** http://purl.org/dc/terms/identifier
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:datatype:** http://www.w3.org/2001/XMLSchema#string
-
-#### Property: nd704ac798dc3413691f7ba7e51283ba8b6
-
-**Path:** http://purl.org/dc/terms/title
+**Path:** `dcterms:conformsTo`
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:datatype:** http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
-- **sh:uniqueLang:** true
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:hasValue:** `ns2:metadata`
 
-#### Property: nd704ac798dc3413691f7ba7e51283ba8b7
+#### Property: (Blank Node)
 
-**Path:** http://purl.org/dc/terms/description
+**Path:** `dcterms:identifier`
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:datatype:** http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
-- **sh:uniqueLang:** true
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:datatype:** `xsd:string`
+
+#### Property: (Blank Node)
+
+**Path:** `dcterms:title`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:datatype:** `rdf:langString`
+- **sh:uniqueLang:** "True"^^xsd:boolean
+
+#### Property: (Blank Node)
+
+**Path:** `dcterms:description`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:datatype:** `rdf:langString`
+- **sh:uniqueLang:** "True"^^xsd:boolean
+
+#### Property: (Blank Node)
+
+**Path:** `dcterms:creator`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:nodeKind:** `sh:BlankNodeOrIRI`
 
 ---
 
-## Shape: https://w3id.org/riverbench/schema/dataset-shacl#DatasetGraphShape
+## Shape: CategoryGraphShape
 
 ### NodeShape Constraints
 
-- **sh:targetNode:** https://w3id.org/riverbench/schema/metadata#Dataset
+- **sh:targetNode:** `rb:Category`
 
 ### Properties
 
-#### Property: n4fead01b140144af86da1873f016e0c4b1
+#### Property: (Blank Node)
 
-**Path:** ^http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+**Path:** ^`rdf:type`
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
 
 ---
 
-## Shape: https://w3id.org/riverbench/schema/dataset-shacl#DatasetShape
+## Shape: CategoryShape
 
 ### NodeShape Constraints
 
-- **sh:targetClass:** https://w3id.org/riverbench/schema/metadata#Dataset
+- **sh:targetNode:** `ns1:category`
 
 ### Properties
 
-#### Property: n4fead01b140144af86da1873f016e0c4b3
+#### Property: (Blank Node)
 
-**Path:** http://www.w3.org/1999/02/22-rdf-syntax-ns#type
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:hasValue:** http://www.w3.org/ns/dcat#Dataset
-
-#### Property: n4fead01b140144af86da1873f016e0c4b4
-
-**Path:** http://purl.org/dc/terms/conformsTo
+**Path:** `rdf:type`
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:nodeKind:** http://www.w3.org/ns/shacl#IRI
-- **sh:hasValue:** https://w3id.org/riverbench/schema/metadata
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:hasValue:** `rb:Category`
 
-#### Property: n4fead01b140144af86da1873f016e0c4b5
+#### Property: (Blank Node)
 
-**Path:** http://purl.org/dc/terms/identifier
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:datatype:** http://www.w3.org/2001/XMLSchema#string
-
-#### Property: n4fead01b140144af86da1873f016e0c4b6
-
-**Path:** http://purl.org/dc/terms/title
+**Path:** `dcterms:conformsTo`
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:datatype:** http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
-- **sh:uniqueLang:** true
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:hasValue:** `ns2:metadata`
 
-#### Property: n4fead01b140144af86da1873f016e0c4b7
+#### Property: (Blank Node)
 
-**Path:** http://purl.org/dc/terms/description
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:datatype:** http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
-- **sh:uniqueLang:** true
-
-#### Property: n4fead01b140144af86da1873f016e0c4b8
-
-**Path:** http://purl.org/dc/terms/issued
+**Path:** `dcterms:identifier`
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:datatype:** http://www.w3.org/2001/XMLSchema#date
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:datatype:** `xsd:string`
 
-#### Property: n4fead01b140144af86da1873f016e0c4b9
+#### Property: (Blank Node)
 
-**Path:** http://purl.org/dc/terms/license
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:nodeKind:** http://www.w3.org/ns/shacl#IRI
-- **sh:pattern:** ^https://spdx.org/licenses/
-
-#### Property: n4fead01b140144af86da1873f016e0c4b10
-
-**Path:** http://purl.org/dc/terms/creator
+**Path:** `dcterms:title`
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:nodeKind:** http://www.w3.org/ns/shacl#BlankNodeOrIRI
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:datatype:** `rdf:langString`
+- **sh:uniqueLang:** "True"^^xsd:boolean
 
-#### Property: n4fead01b140144af86da1873f016e0c4b11
+#### Property: (Blank Node)
 
-**Path:** http://www.w3.org/ns/dcat#theme
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:nodeKind:** http://www.w3.org/ns/shacl#IRI
-- **sh:pattern:** ^http://eurovoc.europa.eu/
-- **sh:node:** {'sh:property': rdflib.term.BNode('n4fead01b140144af86da1873f016e0c4b13')}
-
-#### Property: n4fead01b140144af86da1873f016e0c4b14
-
-**Path:** http://rdfs.org/ns/void#vocabulary
+**Path:** `dcterms:description`
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:nodeKind:** http://www.w3.org/ns/shacl#IRI
-
-#### Property: n4fead01b140144af86da1873f016e0c4b15
-
-**Path:** https://w3id.org/riverbench/schema/metadata#hasStreamElementCount
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:datatype:** http://www.w3.org/2001/XMLSchema#integer
-
-#### Property: n4fead01b140144af86da1873f016e0c4b16
-
-**Path:** https://w3id.org/stax/ontology#hasStreamTypeUsage
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 2
-- **sh:node:** https://w3id.org/riverbench/schema/dataset-shacl#StreamTypeShape
-
-#### Property: n4fead01b140144af86da1873f016e0c4b17
-
-**Path:** https://w3id.org/riverbench/schema/metadata#hasStreamElementSplit
-
-**Constraints:**
-- **sh:nodeKind:** http://www.w3.org/ns/shacl#BlankNodeOrIRI
-- **sh:node:** https://w3id.org/riverbench/schema/dataset-shacl#StreamElementSplitShape
-
-#### Property: n4fead01b140144af86da1873f016e0c4b18
-
-**Path:** https://w3id.org/riverbench/schema/metadata#conformsToRdf11
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:datatype:** http://www.w3.org/2001/XMLSchema#boolean
-
-#### Property: n4fead01b140144af86da1873f016e0c4b19
-
-**Path:** https://w3id.org/riverbench/schema/metadata#conformsToRdfStarDraft_20211217
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:datatype:** http://www.w3.org/2001/XMLSchema#boolean
-
-#### Property: n4fead01b140144af86da1873f016e0c4b20
-
-**Path:** https://w3id.org/riverbench/schema/metadata#usesGeneralizedRdfDatasets
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:datatype:** http://www.w3.org/2001/XMLSchema#boolean
-
-#### Property: n4fead01b140144af86da1873f016e0c4b21
-
-**Path:** https://w3id.org/riverbench/schema/metadata#usesGeneralizedTriples
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:datatype:** http://www.w3.org/2001/XMLSchema#boolean
-
-#### Property: n4fead01b140144af86da1873f016e0c4b22
-
-**Path:** https://w3id.org/riverbench/schema/metadata#usesRdfStar
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:datatype:** http://www.w3.org/2001/XMLSchema#boolean
-
-#### Property: n4fead01b140144af86da1873f016e0c4b23
-
-**Path:** http://www.w3.org/ns/dcat#version
-
-**Constraints:**
-- **sh:maxCount:** 0
-
-#### Property: n4fead01b140144af86da1873f016e0c4b24
-
-**Path:** http://purl.org/dc/terms/modified
-
-**Constraints:**
-- **sh:maxCount:** 0
-
-#### Property: n4fead01b140144af86da1873f016e0c4b25
-
-**Path:** http://www.w3.org/ns/dcat#landingPage
-
-**Constraints:**
-- **sh:maxCount:** 0
-
-#### Property: n4fead01b140144af86da1873f016e0c4b26
-
-**Path:** http://www.w3.org/ns/dcat#inSeries
-
-**Constraints:**
-- **sh:maxCount:** 0
-
-#### Property: n4fead01b140144af86da1873f016e0c4b27
-
-**Path:** http://www.w3.org/ns/dcat#distribution
-
-**Constraints:**
-- **sh:maxCount:** 0
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:datatype:** `rdf:langString`
+- **sh:uniqueLang:** "True"^^xsd:boolean
 
 ---
 
-## Shape: https://w3id.org/riverbench/schema/dataset-shacl#StreamTypeShape
+## Shape: DatasetGraphShape
 
 ### NodeShape Constraints
 
-- **sh:and:** {}
-
----
-
-## Shape: n4fead01b140144af86da1873f016e0c4b31
+- **sh:targetNode:** `rb:Dataset`
 
 ### Properties
 
-#### Property: n4fead01b140144af86da1873f016e0c4b32
+#### Property: (Blank Node)
 
-**Path:** http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+**Path:** ^`rdf:type`
 
 **Constraints:**
-- **sh:hasValue:** https://w3id.org/stax/ontology#ConcreteRdfStreamType
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
 
 ---
 
-## Shape: https://w3id.org/riverbench/schema/dataset-shacl#FlatStreamTypeShape
+## Shape: DatasetShape
 
 ### NodeShape Constraints
 
-- **sh:targetNode:** https://w3id.org/stax/ontology#flatStream
+- **sh:targetClass:** `rb:Dataset`
 
 ### Properties
 
-#### Property: n4fead01b140144af86da1873f016e0c4b53
+#### Property: (Blank Node)
 
-**Path:** ((http://www.w3.org/2004/02/skos/core#narrower)+)/(^https://w3id.org/stax/ontology#hasStreamType)/(^https://w3id.org/stax/ontology#hasStreamTypeUsage)
+**Path:** `rdf:type`
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:nodeKind:** http://www.w3.org/ns/shacl#IRI
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:hasValue:** `dcat:Dataset`
+
+#### Property: (Blank Node)
+
+**Path:** `dcterms:conformsTo`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:nodeKind:** `sh:IRI`
+- **sh:hasValue:** `ns1:metadata`
+
+#### Property: (Blank Node)
+
+**Path:** `dcterms:identifier`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:datatype:** `xsd:string`
+
+#### Property: (Blank Node)
+
+**Path:** `dcterms:title`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:datatype:** `rdf:langString`
+- **sh:uniqueLang:** "True"^^xsd:boolean
+
+#### Property: (Blank Node)
+
+**Path:** `dcterms:description`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:datatype:** `rdf:langString`
+- **sh:uniqueLang:** "True"^^xsd:boolean
+
+#### Property: (Blank Node)
+
+**Path:** `dcterms:issued`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:datatype:** `xsd:date`
+
+#### Property: (Blank Node)
+
+**Path:** `dcterms:license`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:nodeKind:** `sh:IRI`
+- **sh:pattern:** "^https://spdx.org/licenses/"
+
+#### Property: (Blank Node)
+
+**Path:** `dcterms:creator`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:nodeKind:** `sh:BlankNodeOrIRI`
+
+#### Property: (Blank Node)
+
+**Path:** `dcat:theme`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:nodeKind:** `sh:IRI`
+- **sh:pattern:** "^http://eurovoc.europa.eu/"
+- **sh:node:** (Blank Node)
+
+#### Property: (Blank Node)
+
+**Path:** `void:vocabulary`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:nodeKind:** `sh:IRI`
+
+#### Property: (Blank Node)
+
+**Path:** `rb:hasStreamElementCount`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:datatype:** `xsd:integer`
+
+#### Property: (Blank Node)
+
+**Path:** `stax:hasStreamTypeUsage`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "2"^^xsd:integer
+- **sh:node:** `StreamTypeShape`
+
+#### Property: (Blank Node)
+
+**Path:** `rb:hasStreamElementSplit`
+
+**Constraints:**
+- **sh:nodeKind:** `sh:BlankNodeOrIRI`
+- **sh:node:** `StreamElementSplitShape`
+
+#### Property: (Blank Node)
+
+**Path:** `rb:conformsToRdf11`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:datatype:** `xsd:boolean`
+
+#### Property: (Blank Node)
+
+**Path:** `rb:conformsToRdfStarDraft_20211217`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:datatype:** `xsd:boolean`
+
+#### Property: (Blank Node)
+
+**Path:** `rb:usesGeneralizedRdfDatasets`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:datatype:** `xsd:boolean`
+
+#### Property: (Blank Node)
+
+**Path:** `rb:usesGeneralizedTriples`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:datatype:** `xsd:boolean`
+
+#### Property: (Blank Node)
+
+**Path:** `rb:usesRdfStar`
+
+**Constraints:**
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:datatype:** `xsd:boolean`
+
+#### Property: (Blank Node)
+
+**Path:** `dcat:version`
+
+**Constraints:**
+- **sh:maxCount:** "0"^^xsd:integer
+
+#### Property: (Blank Node)
+
+**Path:** `dcterms:modified`
+
+**Constraints:**
+- **sh:maxCount:** "0"^^xsd:integer
+
+#### Property: (Blank Node)
+
+**Path:** `dcat:landingPage`
+
+**Constraints:**
+- **sh:maxCount:** "0"^^xsd:integer
+
+#### Property: (Blank Node)
+
+**Path:** `dcat:inSeries`
+
+**Constraints:**
+- **sh:maxCount:** "0"^^xsd:integer
+
+#### Property: (Blank Node)
+
+**Path:** `dcat:distribution`
+
+**Constraints:**
+- **sh:maxCount:** "0"^^xsd:integer
 
 ---
 
-## Shape: https://w3id.org/riverbench/schema/dataset-shacl#StreamElementSplitShape
-
-### Properties
-
-#### Property: n4fead01b140144af86da1873f016e0c4b60
-
-**Path:** http://www.w3.org/1999/02/22-rdf-syntax-ns#type
-
-**Constraints:**
-- **sh:in:** {}
-
----
-
-## Shape: https://w3id.org/riverbench/schema/dataset-shacl#SubjectShapeShape
+## Shape: StreamTypeShape
 
 ### NodeShape Constraints
 
-- **sh:targetSubjectsOf:** https://w3id.org/riverbench/schema/metadata#hasSubjectShape
-
-### Properties
-
-#### Property: n4fead01b140144af86da1873f016e0c4b64
-
-**Path:** http://www.w3.org/1999/02/22-rdf-syntax-ns#type
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:hasValue:** https://w3id.org/riverbench/schema/metadata#TopicStreamElementSplit
-
-#### Property: n4fead01b140144af86da1873f016e0c4b65
-
-**Path:** https://w3id.org/riverbench/schema/metadata#hasSubjectShape/(http://www.w3.org/ns/shacl#targetClass|http://www.w3.org/ns/shacl#targetSubjectsOf|http://www.w3.org/ns/shacl#targetObjectsOf|https://w3id.org/riverbench/schema/metadata#targetCustom)
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:nodeKind:** http://www.w3.org/ns/shacl#IRI
+- **sh:and:** (Blank Node)
 
 ---
 
-## Shape: https://w3id.org/riverbench/schema/dataset-shacl#TaskGraphShape
-
-### NodeShape Constraints
-
-- **sh:targetNode:** https://w3id.org/riverbench/schema/metadata#Task
+## Shape: (Blank Node)
 
 ### Properties
 
-#### Property: n6a1b63e6b8cc4767a105c234ac65a447b1
+#### Property: (Blank Node)
 
-**Path:** ^http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+**Path:** `rdf:type`
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
+- **sh:hasValue:** `stax:ConcreteRdfStreamType`
 
 ---
 
-## Shape: https://w3id.org/riverbench/schema/dataset-shacl#TaskShape
+## Shape: FlatStreamTypeShape
 
 ### NodeShape Constraints
 
-- **sh:targetNode:** https://w3id.org/riverbench/temp#task
+- **sh:targetNode:** `stax:flatStream`
 
 ### Properties
 
-#### Property: n6a1b63e6b8cc4767a105c234ac65a447b3
+#### Property: (Blank Node)
 
-**Path:** http://www.w3.org/1999/02/22-rdf-syntax-ns#type
-
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:hasValue:** https://w3id.org/riverbench/schema/metadata#Task
-
-#### Property: n6a1b63e6b8cc4767a105c234ac65a447b4
-
-**Path:** http://purl.org/dc/terms/conformsTo
+**Path:** ((`skos:narrower`)+)/(^`stax:hasStreamType`)/(^`stax:hasStreamTypeUsage`)
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:hasValue:** https://w3id.org/riverbench/schema/metadata
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:maxCount:** "1"^^xsd:integer
+- **sh:nodeKind:** `sh:IRI`
 
-#### Property: n6a1b63e6b8cc4767a105c234ac65a447b5
+---
 
-**Path:** http://purl.org/dc/terms/identifier
+## Shape: StreamElementSplitShape
 
-**Constraints:**
-- **sh:minCount:** 1
-- **sh:maxCount:** 1
-- **sh:datatype:** http://www.w3.org/2001/XMLSchema#string
+### Properties
 
-#### Property: n6a1b63e6b8cc4767a105c234ac65a447b6
+#### Property: (Blank Node)
 
-**Path:** http://purl.org/dc/terms/title
+**Path:** `rdf:type`
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:datatype:** http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
-- **sh:uniqueLang:** true
+- **sh:in:** (Blank Node)
 
-#### Property: n6a1b63e6b8cc4767a105c234ac65a447b7
+---
 
-**Path:** http://purl.org/dc/terms/description
+## Shape: SubjectShapeShape
+
+### NodeShape Constraints
+
+- **sh:targetSubjectsOf:** `rb:hasSubjectShape`
+
+### Properties
+
+#### Property: (Blank Node)
+
+**Path:** `rdf:type`
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:datatype:** http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
-- **sh:uniqueLang:** true
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:hasValue:** `rb:TopicStreamElementSplit`
 
-#### Property: n6a1b63e6b8cc4767a105c234ac65a447b8
+#### Property: (Blank Node)
 
-**Path:** http://purl.org/dc/terms/creator
+**Path:** `rb:hasSubjectShape`/(`sh:targetClass`|`sh:targetSubjectsOf`|`sh:targetObjectsOf`|`rb:targetCustom`)
 
 **Constraints:**
-- **sh:minCount:** 1
-- **sh:nodeKind:** http://www.w3.org/ns/shacl#BlankNodeOrIRI
+- **sh:minCount:** "1"^^xsd:integer
+- **sh:nodeKind:** `sh:IRI`
 
 ---
 

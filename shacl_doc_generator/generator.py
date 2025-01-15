@@ -67,9 +67,13 @@ class MarkdownGenerator:
             return "???"
 
     def _format_path_item(self, item):
-        """Format a single path item which can be either a string (predicate) or a Path."""
+        """
+        Format a single path item which can be either a string (prefixed IRI) 
+        or a Path. If it's a string, wrap it in backticks for Markdown.
+        """
         if isinstance(item, str):
-            return item
+            # Now item should already be "prefix:suffix".
+            return f"`{item}`"  # <--- wrap in backticks
         elif isinstance(item, Path):
             return f"({self._format_path(item)})"
         else:
