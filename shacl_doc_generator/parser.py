@@ -1,10 +1,18 @@
-from pathlib import Path
-from typing import Dict, Any, List, Union
-from rdflib import Graph, Namespace, URIRef, BNode, Literal
+from typing import Any, Dict, List, Union
+
+from rdflib import BNode, Graph, Literal, Namespace, URIRef
 from rdflib.namespace import RDF, RDFS
-from shacl_doc_generator.models import NodeShapeInfo, PropertyShapeInfo, Constraint, Path, PathEnum
+
+from shacl_doc_generator.models import (
+    Constraint,
+    NodeShapeInfo,
+    Path,
+    PathEnum,
+    PropertyShapeInfo,
+)
 
 SH = Namespace("http://www.w3.org/ns/shacl#")
+
 
 class ShaclParser:
     def __init__(self):
@@ -12,7 +20,6 @@ class ShaclParser:
 
     def parse_file(self, file_path: Path) -> Dict[str, NodeShapeInfo]:
         g = Graph()
-        print(f"Parsing file: {file_path}")
         g.parse(file_path, format="turtle")
 
         node_shapes = list(g.subjects(RDF.type, SH.NodeShape))
@@ -29,9 +36,7 @@ class ShaclParser:
         node_properties = self.extract_properties(g, node)
 
         node_shape = NodeShapeInfo(
-            type='NodeShape',
-            constraints=node_constraints,
-            properties=node_properties
+            type="NodeShape", constraints=node_constraints, properties=node_properties
         )
 
         return node_shape
@@ -41,7 +46,6 @@ class ShaclParser:
         for p, o in g.predicate_objects(node):
             if str(p).startswith(str(SH)) and p not in (SH.property, SH.path):
                 c_key = self._get_property_label(g, p)
-                # If o is a BNode or a URIRef, convert it
                 c_val = self.to_prefixed(g, o)
                 constraints.append(Constraint(name=c_key, value=c_val))
         return constraints
@@ -53,15 +57,15 @@ class ShaclParser:
             properties.append(prop_info)
         return properties
 
-    def extract_property_shape_info(self, g: Graph, pshape: URIRef) -> PropertyShapeInfo:
+    def extract_property_shape_info(
+        self, g: Graph, pshape: URIRef
+    ) -> PropertyShapeInfo:
         path_node = g.value(pshape, SH.path)
         path = self._parse_path(g, path_node)
         id_val = self.to_prefixed(g, pshape)
 
         return PropertyShapeInfo(
-            id=id_val,
-            path=path,
-            constraints=self.extract_constraints(g, pshape)
+            id=id_val, path=path, constraints=self.extract_constraints(g, pshape)
         )
 
     def _get_property_label(self, g: Graph, prop: URIRef) -> str:
@@ -71,57 +75,32 @@ class ShaclParser:
         else:
             return g.namespace_manager.normalizeUri(prop)
 
-    def _extract_list(self, g: Graph, bnode: BNode) -> List[Any]:
-        elements = []
-        head = bnode
-        while head and head != RDF.nil:
-            first = g.value(head, RDF.first)
-            if first:
-                elements.append(first)
-            head = g.value(head, RDF.rest)
-        return elements
-
-    def _extract_bnode_shape(self, g: Graph, bnode: BNode) -> Dict[str, Any]:
-        bnode_info = {}
-        for p, o in g.predicate_objects(bnode):
-            if str(p).startswith(str(SH)):
-                c_key = self._get_property_label(g, p)
-                bnode_info[c_key] = o 
-        return bnode_info
-
     def _parse_path(self, g: Graph, node: Union[URIRef, BNode]) -> Path:
         """Parse a path node (URIRef or BNode) into a Path object."""
         if isinstance(node, URIRef):
             prefixed = self.to_prefixed(g, node)
             return Path(type=PathEnum.predicate, items=[prefixed])
 
-        # Check inversePath
         inverse = g.value(node, SH.inversePath)
         if inverse is not None:
-            # inverse must be a well-formed path
             inner_path = self._parse_path(g, inverse)
             return Path(type=PathEnum.inverse, items=[inner_path])
 
-        # Check alternativePath
         alt_list = g.value(node, SH.alternativePath)
         if alt_list is not None:
-            # alt_list is a SHACL list of paths
             members = self._parse_path_list(g, alt_list)
             return Path(type=PathEnum.alternative, items=members)
 
-        # Check zeroOrMorePath
         zero_or_more = g.value(node, SH.zeroOrMorePath)
         if zero_or_more is not None:
             inner_path = self._parse_path(g, zero_or_more)
             return Path(type=PathEnum.zero_or_more, items=[inner_path])
 
-        # Check oneOrMorePath
         one_or_more = g.value(node, SH.oneOrMorePath)
         if one_or_more is not None:
             inner_path = self._parse_path(g, one_or_more)
             return Path(type=PathEnum.one_or_more, items=[inner_path])
 
-        # Check zeroOrOnePath
         zero_or_one = g.value(node, SH.zeroOrOnePath)
         if zero_or_one is not None:
             inner_path = self._parse_path(g, zero_or_one)
@@ -133,7 +112,6 @@ class ShaclParser:
                 raise ValueError("Sequence path must have at least two elements.")
             return Path(type=PathEnum.sequence, items=members)
 
-        # If we reach here, it's not a recognized path form
         raise ValueError(f"Unrecognized path structure at node {node}")
 
     def _is_shacl_list(self, g: Graph, node: BNode) -> bool:
@@ -152,7 +130,6 @@ class ShaclParser:
             first = g.value(head, RDF.first)
             if first is None:
                 raise ValueError(f"Malformed list: {head} has no rdf:first")
-            # parse first as a path element
             elements.append(self._parse_path_element(g, first))
             head = g.value(head, RDF.rest)
         return elements
@@ -164,7 +141,7 @@ class ShaclParser:
         if isinstance(element, URIRef):
             try:
                 prefixed_name = g.namespace_manager.qname(element)
-            except Exception as e:
+            except Exception:
                 prefixed_name = str(element)
             return prefixed_name
 
@@ -174,7 +151,9 @@ class ShaclParser:
         else:
             raise ValueError(f"Path element {element} is neither URIRef nor BNode.")
 
-    def to_prefixed(self, g: Graph, term: Any, code_format: bool = True) -> str:
+    def to_prefixed(
+        self, g: Graph, term: Literal | URIRef | BNode, code_format: bool = True
+    ) -> str:
         """
         Convert a term (URIRef, BNode, or str) to a prefixed string if possible,
         or a placeholder if it's a blank node/literal.
@@ -182,9 +161,9 @@ class ShaclParser:
         if isinstance(term, BNode):
             return "(Blank Node)"
         prefixed = self._to_prefixed(g, term)
-        return prefixed if not code_format else f'`{prefixed}`'
+        return prefixed if not code_format else f"`{prefixed}`"
 
-    def _to_prefixed(self, g: Graph, term: Any):
+    def _to_prefixed(self, g: Graph, term: Literal | URIRef):
         if isinstance(term, URIRef):
             try:
                 qn = g.namespace_manager.qname(term)
@@ -193,11 +172,10 @@ class ShaclParser:
                 return str(term)
         elif isinstance(term, Literal):
             if term.language:
-                return f"\"{term.value}\"@{term.language}"
+                return f'"{term.value}"@{term.language}'
             elif term.datatype:
-                return f"\"{term.value}\"^^{g.namespace_manager.qname(term.datatype)}"
+                return f'"{term.value}"^^{g.namespace_manager.qname(term.datatype)}'
             else:
-                return f"\"{term.value}\""
+                return f'"{term.value}"'
         else:
             return term
-
