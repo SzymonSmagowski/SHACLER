@@ -45,15 +45,11 @@ poetry run python main.py --input ./shacl_files/schema/src/shacl --output ./docs
 
 After running this command, look inside the selected directory. You will find Markdown files with documentation for your shapes.
 
-## Current Limitations
-
-Nested shapes do not yet work correctly. This is on our roadmap to fix.
+**Testing**
+```bash
+poetry run pytest
+```
 
 ## Further Development
-
-- SHACLER v0.3.0 (15.01.2024 - TODO) (MVP)
-  - it MUST work for all functionalities used in RiverBench shapes
-  - final markdown output format – user friendly for RiverBench CI
-  - final readme with document installation, usage and further development
-  - wrap our solution in a python package (deploy it to pip?)
-  - implement (at least some) tests
+- All formatting rules are hardcoded. Implement a configuration system to control documentation generation
+- Add more test. Ensure all SHACL features are covered.

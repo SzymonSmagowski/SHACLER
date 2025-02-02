@@ -1,9 +1,13 @@
 from typing import Dict
-from shacl_doc_generator.models import NodeShapeInfo, PropertyShapeInfo, Constraint, Path, PathEnum
+
+from shacl_doc_generator.models import NodeShapeInfo, Path, PathEnum
+
 
 class MarkdownGenerator:
-    def generate_docs(self, shapes: Dict[str, NodeShapeInfo], output_filename: str = "shapes.md"):
-        with open(output_filename, 'w', encoding='utf-8') as f:
+    def generate_docs(
+        self, shapes: Dict[str, NodeShapeInfo], output_filename: str = "shapes.md"
+    ):
+        with open(output_filename, "w", encoding="utf-8") as f:
             f.write("# SHACL Shapes Documentation\n\n")
             for shape_id, shape_info in shapes.items():
                 f.write(f"## Shape: {shape_id}\n\n")
@@ -42,21 +46,19 @@ class MarkdownGenerator:
         Each Path can be a sequence, alternative, inverse, etc.
         """
         lines = []
-
-        # Make a user-friendly label for the path type
         label = self._path_type_label(path.type)
 
-        prefix = "  " * indent  # 2 spaces per level
+        prefix = "  " * indent
         lines.append(f"{prefix}- {label}")
 
         for item in path.items:
             if isinstance(item, str):
-                lines.append(f"{'  ' * (indent+1)}- {item}")
+                lines.append(f"{'  ' * (indent + 1)}- {item}")
             elif isinstance(item, Path):
                 nested_lines = self._render_path_tree(item, indent + 1)
                 lines.extend(nested_lines)
             else:
-                lines.append(f"{'  ' * (indent+1)}- ???")
+                lines.append(f"{'  ' * (indent + 1)}- ???")
         return lines
 
     def _path_type_label(self, path_type: PathEnum) -> str:
@@ -81,24 +83,19 @@ class MarkdownGenerator:
             return str(path_type)  # fallback
 
     def _format_path(self, path: Path) -> str:
-        """Convert a Path object into a human-readable string representation."""
-        # Different formatting depending on path type
+        """Convert a Path object into a SPARQL-like string representation."""
         if path.type == PathEnum.predicate:
-            # items should contain a single string (the URI)
             return path.items[0] if path.items else "???"
 
         elif path.type == PathEnum.inverse:
-            # inverse has one inner path
             inner = self._format_path(path.items[0]) if path.items else "???"
             return f"^{inner}"
 
         elif path.type == PathEnum.sequence:
-            # sequence has multiple items, each item could be a string or another Path
             parts = [self._format_path_item(it) for it in path.items]
             return "/".join(parts)
 
         elif path.type == PathEnum.alternative:
-            # alternative paths separated by '|'
             parts = [self._format_path_item(it) for it in path.items]
             return "|".join(parts)
 
@@ -115,12 +112,11 @@ class MarkdownGenerator:
             return f"{inner}?"
 
         else:
-            # Unknown path type
             return "???"
 
     def _format_path_item(self, item):
         """
-        Format a single path item which can be either a string (prefixed IRI) 
+        Format a single path item which can be either a string (prefixed IRI)
         or a Path. If it's a string, wrap it in backticks for Markdown.
         """
         if isinstance(item, str):
