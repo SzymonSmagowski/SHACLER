@@ -1,18 +1,17 @@
 [tool.poetry]
 name = "shacl-doc-generator"
-version = "0.2.0"
+version = "0.3.1"
 description = "Documentation generator for SHACL shapes"
 authors = ["Your Name <your.email@example.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
 rdflib = "^7.0.0"
-pyshacl = "^0.25.0"
-markdown = "^3.5.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.0"
 black = "^23.12.1"
+mypy = "^1.14.1"
 
 [build-system]
 requires = ["poetry-core"]
